@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView, Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FontAwesome, AntDesign } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 // navegação de páginas
 import { useNavigation } from '@react-navigation/native';
+
 
 export default function Home() {
   const navigation = useNavigation();
@@ -11,33 +12,46 @@ export default function Home() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
+        <Image source={require('./../../images/logoTW.png')} style={styles.logo}></Image>
 
-        <FontAwesome name="home" size={35} color="black" style={styles.icon} />
-        
+
         <Text style={styles.title}>Boas-vindas à TechWave Solutions</Text>
 
         <Text style={styles.text}>
-          A TechWave Solutions é uma empresa fictícia voltada ao desenvolvimento de soluções tecnológicas modernas e acessíveis. Seu principal objetivo é facilitar o dia a dia de pessoas e empresas por meio de aplicativos intuitivos, eficientes e com design inovador.
+          A TechWave Solutions é uma loja especializada em periféricos de alta qualidade, voltada para gamers, profissionais e entusiastas de tecnologia. Nosso objetivo é oferecer equipamentos que elevem o desempenho, o conforto e a experiência do usuário no dia a dia.
         </Text>
 
         <Text style={styles.text}>
-          Com foco em inovação e experiência do usuário, a TechWave busca transformar ideias em produtos digitais funcionais, sempre acompanhando as tendências do mercado e utilizando as melhores práticas de desenvolvimento.
+          Trabalhamos com uma seleção criteriosa de produtos como teclados mecânicos, mouses de alta precisão, headsets imersivos e outros acessórios essenciais. Buscamos sempre unir tecnologia, design moderno e ótimo custo-benefício.
         </Text>
 
         <Text style={styles.text}>
-          A empresa atua nas áreas de desenvolvimento mobile, sistemas web e consultoria tecnológica, oferecendo soluções personalizadas que atendem às necessidades de cada cliente.
+          Na TechWave, acreditamos que cada detalhe faz diferença. Por isso, oferecemos soluções que atendem desde usuários casuais até os mais exigentes, garantindo qualidade, confiabilidade e inovação em cada produto.
         </Text>
+        <View style={styles.espacobotao
 
-        <AntDesign.Button
-          name="product"
-          size={24}
-          color="black"
-          onPress={() => {
-            navigation.navigate('Produtos');
-          }}
-        >
-          Botão de Produtos
-        </AntDesign.Button>
+        }>
+
+          <AntDesign.Button
+            style={styles.button}
+            name="profile"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate('Produtos')}
+          >
+            Ir para Produtos
+          </AntDesign.Button>
+
+          <AntDesign.Button
+            style={styles.button}
+            name="contacts"
+            size={24}
+            color="black"
+            onPress={() => navigation.navigate('Contato')}
+          >
+            Ir para Contato
+          </AntDesign.Button>
+        </View>
 
       </ScrollView>
 
@@ -49,13 +63,19 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f5f5f5'
+
   },
 
   scroll: {
     alignItems: 'center',
-    justifyContent: 'center',
     padding: 20,
+  },
+
+  logo: {
+    width: 250,
+    height: 200,
+    marginBottom: 20,
   },
 
   title: {
@@ -73,7 +93,15 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
 
-  icon: {
-    marginBottom: 20,
+  button: {
+
+    borderRadius: 10,
+    gap: 10,
   },
+
+  espacobotao: {
+    width: '100%',
+    gap: 10,
+    marginTop: 10,
+  }
 });

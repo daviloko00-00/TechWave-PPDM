@@ -1,40 +1,81 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { FontAwesome, AntDesign } from '@expo/vector-icons';
-//navegação de páginas
-
+import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import Produtos from '../produtos';
 
 export default function Contato() {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+
   return (
-
     <SafeAreaView style={styles.container}>
-      <Text>Boas vindas à Tela Home!</Text>
-      <FontAwesome name="home" size={35} color="black" />
-      <FontAwesome.Button name='home' size={50} onPress={() =>{ 
-        alert("Botão Home!! ", 'você apertou o botão Home')} } style={{fontSize: 50}}>Botão Home</FontAwesome.Button>
+      <ScrollView contentContainerStyle={styles.scroll}>
 
-      <AntDesign.Button name="product" size={24} color="black" onPress={()=>{
+        <Image 
+          source={require('./../../images/logoTW.png')} 
+          style={styles.logo} 
+        />
 
-        navigation.navigate('Produtos')
+        <Text style={styles.title}>Contato</Text>
 
+        <Text style={styles.text}>
+          Entre em contato com a TechWave Solutions para tirar dúvidas, solicitar suporte ou conhecer melhor nossos produtos.
+        </Text>
 
-      }}> Botão de Produtos</AntDesign.Button>
+        <Text style={styles.text}>
+            Email: techwavesuporte@gmail.com
+        </Text>
+
+        <Text style={styles.text}>
+            CNPJ: 4455003344
+        </Text>
+
+        <Text style={styles.text}>
+            WhatsApp: (19) 99999-9999
+        </Text>
+
+        <Text style={styles.text}>
+            Localização: Sumaré - SP
+            Rua dos Bobos, nº0, Jardim Maria Antônia
+        </Text>
+
+        <View style={styles.espacobotao}>
+
+          <AntDesign.Button
+            style={styles.button}
+            name="home"
+            size={20}
+            color="black"
+            onPress={() => navigation.navigate('Home')}
+          >
+            Voltar para Home
+          </AntDesign.Button>
+
+          
+        </View>
+
+      </ScrollView>
+
       <StatusBar style="auto" />
-      
     </SafeAreaView>
   );
 }
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f5f5f5'
+
+  },
+
+  scroll: {
     alignItems: 'center',
-    justifyContent: 'center',
     padding: 20,
+  },
+
+  logo: {
+    width: 250,
+    height: 200,
+    marginBottom: 20,
   },
 
   title: {
@@ -42,16 +83,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#222',
     marginBottom: 20,
+    textAlign: 'center',
   },
 
-  icon: {
-    marginBottom: 30,
+  text: {
+    fontSize: 16,
+    color: '#444',
+    marginBottom: 15,
+    textAlign: 'justify',
   },
 
   button: {
-    backgroundColor: '#4CAF50',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+
     borderRadius: 10,
+    gap: 10,
   },
+
+  espacobotao: {
+    width: '100%',
+    gap: 10,
+    marginTop: 10,
+  }
 });
