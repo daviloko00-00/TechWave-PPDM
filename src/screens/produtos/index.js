@@ -10,11 +10,14 @@ export default function Produtos() {
   };
 
   // lista de produtos (estático)
-  //porquê disso???
-  // muito mais fácil doq ficar abrindo diversas views. Rápido e prático
-  //a gente pega o produtos e faz um map. Para cada produto, ele cria um “card” na tela
-  // tipo um """for each""" pra ficar mais rápido de entender
-  // para cada coisa espécifica na lista que possua um id, ele cria um "card de produto". Mais rápido, prático e renderiza de forma melhor
+// por que usar isso?
+// porque evita ficar criando várias Views manualmente (bem mais prático)
+//
+// a gente guarda os produtos em um array e usa o map()
+// o map funciona tipo um "forEach", percorrendo a lista
+//
+// para cada item da lista, ele cria automaticamente um "card" na tela, usando o id como chave (key)
+// como resultado, a gente tem um código mais organizao e com estrutura reutilizável
   const produtos = [
     {
       id: 1,
