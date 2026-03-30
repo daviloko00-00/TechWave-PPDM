@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign, FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function Contato() {
@@ -17,12 +17,12 @@ export default function Contato() {
         />
 
         <Text style={styles.title}>Contato</Text>
-
         <Text style={styles.text}>
           Entre em contato com a TechWave Solutions para tirar dúvidas, solicitar suporte ou conhecer melhor nossos produtos.
         </Text>
 
         <Text style={styles.text}>
+        <AntDesign name="contacts" size={20} color="black"></AntDesign>
             Email: techwavesuporte@gmail.com
         </Text>
 
@@ -31,10 +31,14 @@ export default function Contato() {
         </Text>
 
         <Text style={styles.text}>
-            WhatsApp: (19) 99999-9999
+          <AntDesign name="whats-app" size={20} color="black">
+          </AntDesign>
+        WhatsApp: (19) 99999-9999
+
         </Text>
 
         <Text style={styles.text}>
+          <FontAwesome name="location-arrow" size={24} color="black" />
             Localização: Sumaré - SP
             Rua dos Bobos, nº0, Jardim Maria Antônia
         </Text>
@@ -92,6 +96,8 @@ const styles = StyleSheet.create({
     color: '#444',
     marginBottom: 15,
     textAlign: 'justify',
+    marginLeft: 5,
+    
   },
 
   button: {

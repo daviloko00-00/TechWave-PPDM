@@ -65,7 +65,7 @@ export default function Produtos() {
         {produtos.map((item) => (
           //Ao usar .map() para renderizar um array, cada item superior deve ter uma prop key única.
           //Exemplo base que usei para esse map
-          /*const lista = [
+        /*const lista = [
               { id: '1', nome: 'Item A' },
               { id: '2', nome: 'Item B' },
             ];
