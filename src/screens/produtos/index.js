@@ -10,14 +10,14 @@ export default function Produtos() {
   };
 
   // lista de produtos (estático)
-// por que usar isso?
-// porque evita ficar criando várias Views manualmente (bem mais prático)
-//
-// a gente guarda os produtos em um array e usa o map()
-// o map funciona tipo um "forEach", percorrendo a lista
-//
-// para cada item da lista, ele cria automaticamente um "card" na tela, usando o id como chave (key)
-// como resultado, a gente tem um código mais organizao e com estrutura reutilizável
+  // por que usar isso?
+  // porque evita ficar criando várias Views manualmente (bem mais prático)
+  //
+  // a gente guarda os produtos em um array e usa o map()
+  // o map funciona tipo um "forEach", percorrendo a lista
+  //
+  // para cada item da lista, ele cria automaticamente um "card" na tela, usando o id como chave (key)
+  // como resultado, a gente tem um código mais organizao e com estrutura reutilizável
   const produtos = [
     {
       id: 1,
@@ -61,8 +61,20 @@ export default function Produtos() {
       <ScrollView contentContainerStyle={styles.scroll}>
 
         <Text style={styles.title}>Produtos</Text>
-
+        {/* Analisa cada objeto de item */}
         {produtos.map((item) => (
+          //Ao usar .map() para renderizar um array, cada item superior deve ter uma prop key única.
+          //Exemplo base que usei para esse map
+          /*const lista = [
+              { id: '1', nome: 'Item A' },
+              { id: '2', nome: 'Item B' },
+            ];
+
+            const listaView = lista.map((item) => (
+              <View key={item.id} style={{/*...}}>
+                <Text>{item.nome}</Text>
+              </View>
+            )); */
           <View key={item.id} style={styles.card}>
 
             <Image source={item.imagem} style={styles.image} />
@@ -70,7 +82,7 @@ export default function Produtos() {
             <Text style={styles.nome}>{item.nome}</Text>
 
             <Text style={styles.preco}>Preço: {item.preco}</Text>
-            <Text style={styles.pix}>PIX: {item.pix}</Text>
+            <Text style={styles.pix}> Preço via PIX: {item.pix}</Text>
 
             {/* QUANTIDADE */}
             <View style={styles.quantidadeContainer}>
@@ -84,9 +96,8 @@ export default function Produtos() {
                 <Text>+</Text>
               </TouchableOpacity>
             </View>
-
-            {/* BOTÃO */}
-            <TouchableOpacity 
+            {/* BOTÃO*/}
+            <TouchableOpacity
               style={styles.botao}
               onPress={() => adicionarCarrinho(item.nome)}
             >
