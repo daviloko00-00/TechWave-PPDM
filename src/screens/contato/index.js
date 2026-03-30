@@ -46,7 +46,8 @@ export default function Contato() {
             name="home"
             size={20}
             color="black"
-            onPress={() => navigation.navigate('Home')}
+            //popToTop volta para a página inicial da pilha
+            onPress={() => navigation.popToTop()}
           >
             Voltar para Home
           </AntDesign.Button>
